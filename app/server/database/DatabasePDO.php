@@ -2,7 +2,6 @@
 
 namespace agenda\app\server\database;
 
-use Exception;
 use PDO;
 use PDOException;
 

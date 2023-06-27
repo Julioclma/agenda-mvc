@@ -10,7 +10,6 @@ class ControllerImplements
 
     public function index(?string $title = 'sem titulo'): void
     {
-        var_dump($title);
         include $this->viewPath;
     }
 
