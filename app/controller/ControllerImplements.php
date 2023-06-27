@@ -2,6 +2,8 @@
 
 namespace agenda\app\controller;
 
+use agenda\app\helpers\Request;
+
 class ControllerImplements
 {
     protected $viewPath = "";
@@ -10,5 +12,16 @@ class ControllerImplements
     {
         var_dump($title);
         include $this->viewPath;
+    }
+
+    protected function checkParams(Request $object, array $properts): bool
+    {
+        foreach ($properts as $property) {
+            if (!property_exists($object, $property)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

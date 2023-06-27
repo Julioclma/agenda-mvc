@@ -6,28 +6,33 @@ use DateTime;
 
 class Agenda
 {
+    public static $table = "contacts";
     private $name;
-    private $description;
-    private $date;
-    public static $table = "tarefas";
+    private $number;
+    private $createdAt;
 
-    public function __construct(string $name, string $description)
+    public function __construct(string $name, string $number)
     {
         $this->name = $name;
-        $this->description = $description;
-        $this->date = (new DateTime)->format('Y-m-d H:i:s');
+        $this->number = $number;
+        $this->createdAt = $this->setDate();
+    }
+
+    private function setDate(): string
+    {
+        return (new DateTime)->format('Y-m-d H:i:s');
     }
 
     public function getName(): string
     {
         return $this->name;
     }
-    public function getDescription(): string
+    public function getNumber(): string
     {
-        return $this->description;
+        return $this->number;
     }
     public function getDate(): string
     {
-        return $this->date;
+        return $this->createdAt;
     }
 }

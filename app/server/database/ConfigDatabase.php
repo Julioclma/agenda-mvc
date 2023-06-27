@@ -8,7 +8,7 @@ class ConfigDatabase
     private $host = "localhost";
     private $dbName = "agenda";
     private $dbUser = "root";
-    private $dbPass = "";
+    private $dbPass = "1234";
     private $config;
 
     public function __construct()

@@ -9,11 +9,11 @@ class RepositoryAgenda implements RepositoryInterface
 {
     public function create(Agenda $agenda): bool
     {
-        $sql = "INSERT INTO " . Agenda::$table . " VALUES(:name, :description, :date)";
+        $sql = "INSERT INTO " . Agenda::$table . " (name, number, createdAt) VALUES(:name, :number, :createdAt)";
         $stmt = DatabasePDO::conn()->prepare($sql);
-        $stmt->bindParam(":name", $agenda->getName());
-        $stmt->bindParam(":description", $agenda->getDescription());
-        $stmt->bindParam(":date", $agenda->getDate());
+        $stmt->bindValue(":name", $agenda->getName());
+        $stmt->bindValue(":number", $agenda->getNumber());
+        $stmt->bindValue(":createdAt", $agenda->getDate());
         return $stmt->execute();
     }
 

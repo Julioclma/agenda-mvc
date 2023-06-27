@@ -5,7 +5,7 @@
 <main>
     <form action="<?= $routes['contacts-create']['url'] ?>" method="<?= $routes['contacts-create']['request'] ?>">
         <input type="text" name="name" placeholder="Nome da tarefa">
-        <input type="text" name="description" placeholder="Descrição">
+        <input type="text" name="number" placeholder="Descrição">
         <button type="submit">registrar</button>
     </form>
 

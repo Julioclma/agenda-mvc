@@ -5,6 +5,8 @@ namespace agenda\app\controller;
 use agenda\app\helpers\Request;
 use agenda\app\models\agenda\Agenda;
 use agenda\app\repository\agenda\RepositoryAgenda;
+use DomainException;
+use InvalidArgumentException;
 
 class ControllerContacts extends ControllerImplements
 {
@@ -21,14 +23,15 @@ class ControllerContacts extends ControllerImplements
 
     public function create(Request $request): void
     {
-        var_dump('criando contato...');
-        var_dump($request);
-        exit();
-        $check = $this->repository->create(new Agenda($_POST['name'], $_POST['description']));
-
-        if (!$check) {
-            echo 'erro ao criar tarefa';
+        if ($this->checkParams($request, ['name', 'number'])) {
+            if (!$this->repository->create(new Agenda($request->name, $request->number))) {
+                echo 'erro ao criar tarefa';
+                return;
+            }
+            echo 'criado com sucesso!';
+            return;
         }
-        echo 'criado com sucesso!';
+
+        throw new InvalidArgumentException("Valores inválidos");
     }
 }
