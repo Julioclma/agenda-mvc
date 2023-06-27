@@ -2,33 +2,31 @@
 
 namespace agenda\app\controller;
 
+use agenda\app\helpers\Request;
 use agenda\app\models\agenda\Agenda;
 use agenda\app\repository\agenda\RepositoryAgenda;
-use agenda\app\server\database\DatabasePDO;
 
-class ControllerContacts
+class ControllerContacts extends ControllerImplements
 {
 
     private $repository;
+
+    protected $viewPath = __DIR__ . '../../view/contacts/contacts.php';
+
 
     public function __construct()
     {
         $this->repository = new RepositoryAgenda;
     }
 
-    public function index()
+    public function create(Request $request): void
     {
-        include __DIR__ . '../../view/contacts/contacts.php';
-    }
+        var_dump('criando contato...');
+        var_dump($request);
+        exit();
+        $check = $this->repository->create(new Agenda($_POST['name'], $_POST['description']));
 
-    public function create(): void
-        {
-            var_dump(DatabasePDO::conn());
-            exit();
-            echo 'criando contato...';
-            $check = $this->repository->create(new Agenda($_POST['name'], $_POST['description']));
-
-            if (!$check) {
+        if (!$check) {
             echo 'erro ao criar tarefa';
         }
         echo 'criado com sucesso!';

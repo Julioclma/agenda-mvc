@@ -1,7 +1,5 @@
-<?php 
-$title = "Home";
-include_once __DIR__.'/template/header.php' ?>
+<?php include_once __DIR__ . '/template/header.php' ?>
 
-Home
+<header>Home</header>
 
-<?php include_once __DIR__.'/template/footer.php' ?>
+<?php include_once __DIR__ . '/template/footer.php' ?>

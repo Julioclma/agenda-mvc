@@ -11,9 +11,26 @@ class Routes
     public static function routes(): array
     {
         return [
-            "/home" => ["request" => "GET", "action" => "index", "controller" => ControllerHome::class],
-            "/contacts" => ["request" => "GET", "action" => "index", "controller" => ControllerContacts::class],
-            "/contacts/create" => ["request" => "POST", "action" => "create", "controller" => ControllerContacts::class]
+            "home" => [
+                "title" => "Home",
+                "url" => "/home",
+                "request" => "GET",
+                "action" => "index",
+                "controller" => ControllerHome::class
+            ],
+            "contacts" => [
+                "title" => "Contacts",
+                "url" => "/contacts",
+                "request" => "GET",
+                "action" => "index",
+                "controller" => ControllerContacts::class
+            ],
+            "contacts-create" => [
+                "url" => "/contacts/create",
+                "request" => "POST",
+                "action" => "create",
+                "controller" => ControllerContacts::class
+            ]
         ];
     }
 }
