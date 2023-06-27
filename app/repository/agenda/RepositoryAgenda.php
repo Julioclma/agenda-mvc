@@ -4,9 +4,18 @@ namespace agenda\app\repository\agenda;
 
 use agenda\app\models\agenda\Agenda;
 use agenda\app\server\database\DatabasePDO;
+use PDO;
 
 class RepositoryAgenda implements RepositoryInterface
 {
+
+    public function all(): array
+    {
+        $sql = "SELECT * FROM " . Agenda::$table;
+        $stmt = DatabasePDO::conn()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function create(Agenda $agenda): bool
     {
         $sql = "INSERT INTO " . Agenda::$table . " (name, number, createdAt) VALUES(:name, :number, :createdAt)";

@@ -7,9 +7,12 @@ use agenda\app\helpers\Request;
 class ControllerImplements
 {
     protected $viewPath = "";
+    protected array $params = [];
 
     public function index(?string $title = 'sem titulo'): void
     {
+        $params = $this->getParams($this->params);
+
         include $this->viewPath;
     }
 
@@ -22,5 +25,13 @@ class ControllerImplements
         }
 
         return true;
+    }
+
+    protected function getParams(array $params): array
+    {
+        if (!empty($params)) {
+            return $params;
+        }
+        return [];
     }
 }

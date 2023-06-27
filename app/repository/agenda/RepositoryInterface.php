@@ -6,8 +6,8 @@ use agenda\app\models\agenda\Agenda;
 
 interface RepositoryInterface
 {
+    public function all(): array;
     public function create(Agenda $agenda) : bool;
-
     public function delete(string $id) : bool;
   
 }
