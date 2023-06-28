@@ -11,16 +11,12 @@
 </main>
 
 <hr>
-
-<?php foreach ($params as $contacts) : ?>
-
-    <?php foreach ($contacts as $key => $contact) : ?>
-        <li><label>ID: </label><?= $contact['id'] ?></li>
-        <li><label>Name: </label><?= $contact['name'] ?></li>
-        <li><label>Number: </label><?= $contact['number'] ?></li>
-        <li><label>CreatedAT: </label><?= $contact['createdAt'] ?></li>
-        </ul>
-    <?php endforeach ?>
+<?php foreach ($params['contacts'] as $contact) : ?>
+    <li><label>ID: </label><?= $contact['id'] ?></li>
+    <li><label>Name: </label><?= $contact['name'] ?></li>
+    <li><label>Number: </label><?= $contact['number'] ?></li>
+    <li><label>CreatedAT: </label><?= $contact['createdAt'] ?></li>
+    </ul>
 <?php endforeach ?>
 
 

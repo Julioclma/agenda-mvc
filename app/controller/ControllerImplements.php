@@ -3,6 +3,7 @@
 namespace agenda\app\controller;
 
 use agenda\app\helpers\Request;
+use IntlChar;
 
 class ControllerImplements
 {
@@ -33,5 +34,14 @@ class ControllerImplements
             return $params;
         }
         return [];
+    }
+
+    protected function defineParams(array $keys, array $values): void
+    {
+        if (is_array($values) && (is_array($keys))) {
+            if (sizeof($keys) === sizeof($values)) {
+                $this->params = array_combine($keys, $values);
+            }
+        }
     }
 }

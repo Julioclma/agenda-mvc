@@ -15,19 +15,13 @@ class ControllerContacts extends ControllerImplements
 
     protected $viewPath = __DIR__ . '../../view/contacts/contacts.php';
 
-    protected array $params;
-
     public function __construct()
     {
         $this->repository = new RepositoryAgenda;
-        $this->params[] = $this->defineParams();
+        $this->defineParams(['contacts'], [$this->repository->all()]);
     }
 
 
-    private function defineParams(): array
-    {
-        return $this->repository->all();
-    }
     public function create(Request $request): void
     {
         if ($this->checkParams($request, ['name', 'number'])) {
