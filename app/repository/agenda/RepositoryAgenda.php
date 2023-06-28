@@ -23,7 +23,7 @@ class RepositoryAgenda implements RepositoryInterface
         $stmt = DatabasePDO::conn()->prepare($sql);
         $stmt->bindValue(":name", $agenda->getAgenda()->getName());
         $stmt->bindValue(":number", $agenda->getAgenda()->getNumber());
-        $stmt->bindValue(":createdAt", $agenda->setAndGetFormat('Y-m-d H:i:s'));
+        $stmt->bindValue(":createdAt", $agenda->setAndGetDateFormat('Y-m-d H:i:s'));
         return $stmt->execute();
     }
 

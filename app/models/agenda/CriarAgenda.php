@@ -20,7 +20,7 @@ class CriarAgenda
     {
         return $this->agenda;
     }
-    public function setAndGetFormat(string $format): string
+    public function setAndGetDateFormat(string $format): string
     {
         return $this->data->format($format);
     }
