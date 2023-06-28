@@ -1,8 +1,6 @@
 <?php
-
 use agenda\app\routes\Routes;
-$routes = Routes::routes();
-
+use agenda\app\server\Server;
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +9,7 @@ $routes = Routes::routes();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="<?= Server::css() ?>" />
     <title><?= $title ?></title>
 </head>
 
@@ -19,10 +18,10 @@ $routes = Routes::routes();
     <nav>
         <ul>
             <li>
-                <a href="<?= $routes['contacts']['url'] ?>">Contacts</a>
+                <a href="<?= Routes::routes()['contacts']['url'] ?>">Contacts</a>
             </li>
             <li>
-                <a href="<?= $routes['home']['url'] ?>">Home</a>
+                <a href="<?= Routes::routes()['home']['url'] ?>">Home</a>
             </li>
         </ul>
     </nav>

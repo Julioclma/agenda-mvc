@@ -11,13 +11,25 @@
 </main>
 
 <hr>
-<?php foreach ($params['contacts'] as $contact) : ?>
-    <li><label>ID: </label><?= $contact['id'] ?></li>
-    <li><label>Name: </label><?= $contact['name'] ?></li>
-    <li><label>Number: </label><?= $contact['number'] ?></li>
-    <li><label>CreatedAT: </label><?= $contact['createdAt'] ?></li>
-    </ul>
-<?php endforeach ?>
-
+<table>
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>CreatedAT</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($params['contacts'] as $contact) : ?>
+        <tr>
+            <td><?= $contact['id'] ?></td>
+            <td><?= $contact['name'] ?></td>
+            <td><?= $contact['number'] ?></td>
+            <td><?= $contact['createdAt'] ?></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>
 
 <?php include_once __DIR__ . '/../template/footer.php' ?>

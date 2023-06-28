@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody tr td,
+table th {
+    border: solid 1px rgba(128, 128, 128, 0.288);
+    padding: 10px 5px;
+    text-align: left;
+}
+
+
+td {
+    border-bottom: 1px solid;
+}
