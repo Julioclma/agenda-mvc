@@ -4,8 +4,9 @@ namespace agenda\app\controller;
 
 use agenda\app\helpers\Request;
 use agenda\app\models\agenda\Agenda;
+use agenda\app\models\agenda\CriarAgenda;
 use agenda\app\repository\agenda\RepositoryAgenda;
-use DomainException;
+use DateTime;
 use InvalidArgumentException;
 
 class ControllerContacts extends ControllerImplements
@@ -25,7 +26,8 @@ class ControllerContacts extends ControllerImplements
     public function create(Request $request): void
     {
         if ($this->checkParams($request, ['name', 'number'])) {
-            if (!$this->repository->create(new Agenda($request->name, $request->number))) {
+
+            if (!$this->repository->create(new CriarAgenda(new Agenda($request->name, $request->number), new DateTime))) {
                 echo 'erro ao criar tarefa';
                 return;
             }
